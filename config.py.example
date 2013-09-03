@@ -1,0 +1,13 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# vim: ai ts=4 sts=4 et sw=4 nu
+ 
+  
+from __future__ import (unicode_literals, absolute_import, 
+                        division, print_function)
+
+IMAP_SERVER = "imap.toto.org"
+IMAP_PORT = 993
+IMAP_USER = "toto@tata.org"
+IMAP_PASSWORD = "secret"
+IMAP_MAILBOXES = ["inbox", "spam"]

@@ -102,7 +102,7 @@ if display_new and (totalnew > 0 or display_force):
 
     pynotify.init ("Mailcount")
     n=pynotify.Notification ("%d nouveaux emails" % totalnew, string, os.path.dirname(os.path.realpath(__file__)) + "/icons/mail-message.png")
-    n.set_timeout(5000)
+    n.set_timeout(10000)
     n.show ()
 
 if display_unread and (totalunread > 0 or display_force):

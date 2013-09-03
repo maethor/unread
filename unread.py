@@ -10,8 +10,12 @@ import imaplib, json, pynotify, getopt, sys, os
 from config import *
 
 #default imap port is 993, change otherwise
-M=imaplib.IMAP4_SSL(IMAP_SERVER, IMAP_PORT)
-M.login(IMAP_USER, IMAP_PASSWORD)
+try:
+    M=imaplib.IMAP4_SSL(IMAP_SERVER, IMAP_PORT)
+    M.login(IMAP_USER, IMAP_PASSWORD)
+except:
+    print("Cannot log in")
+    sys.exit(1)
 
 totalunread = 0
 totalnew = 0

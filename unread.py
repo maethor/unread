@@ -95,24 +95,24 @@ except:
     pass
 
 if display_new and (totalnew > 0 or display_force):
-    string = ""
+    strings = list()
     for key, values in boxes.iteritems():
         if (values["new"] > 0 and values["new"] != "?") or display_force:
-            string += "\n- %s : %s" % (key, values["new"])
+            strings.append("\n- %s : %s" % (key, values["new"]))
 
-    pynotify.init ("Mailcount")
-    n=pynotify.Notification ("%d nouveaux emails" % totalnew, string, os.path.dirname(os.path.realpath(__file__)) + "/icons/mail-message.png")
+    pynotify.init ("unread")
+    n=pynotify.Notification ("%d nouveaux emails" % totalnew, '\n'.join(strings), os.path.dirname(os.path.realpath(__file__)) + "/icons/mail-message.png")
     n.set_timeout(10000)
     n.show ()
 
 if display_unread and (totalunread > 0 or display_force):
-    string = ""
+    strings = list()
     for key, values in boxes.iteritems():
         if (values["unread"] > 0 and values["new"] != "?") or display_force:
-            string += "\n- %s : %s" % (key, values["unread"])
+            strings.append("\n- %s : %s" % (key, values["unread"]))
 
-    pynotify.init ("Mailcount")
-    n=pynotify.Notification ("%d emails non-lus" % totalunread, string, os.path.dirname(os.path.realpath(__file__)) + "/icons/mail-message.png")
+    pynotify.init ("unread")
+    n=pynotify.Notification ("%d emails non-lus" % totalunread, '\n'.join(strings), os.path.dirname(os.path.realpath(__file__)) + "/icons/mail-message.png")
     n.set_timeout(5000)
     n.show ()
 
